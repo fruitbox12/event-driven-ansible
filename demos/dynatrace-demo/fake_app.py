@@ -19,6 +19,10 @@ async def down(request: Request) -> Response:
     sys.exit(1)
 
 
+@routes.get("/status")
+async def health(request: Request) -> Response:
+    return web.json_response({"status": "COMPLETED"})
+
 if __name__ == "__main__":
     app = web.Application()
     app.add_routes(routes)
